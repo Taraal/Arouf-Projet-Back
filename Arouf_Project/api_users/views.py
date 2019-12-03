@@ -16,13 +16,13 @@ def getAllUsers(request):
     else:
         return HttpResponse("Aucun utilisateur enregistré")
 
-@csrf_exempt
 def insertUser(request):
     try:
-        name = request.POST['name']
-        surname = request.POST['prenom']
-        email = request.POST['email']
-        username = request.POST['username']
+        print(request.POST)
+        name = request.POST.get("name", "")
+        surname = request.POST.get("prenom", "")
+        email = request.POST.get('email', "")
+        username = request.POST.get("username", "")
         user_instance = User.create(name, surname, username, email)
         user_instance.save()
     except Exception as e:
