@@ -5,7 +5,6 @@ from django.core import serializers
 
 from django.views.decorators.csrf import csrf_exempt
 
-
 # Create your views here.
 
 def getAllUsers(request):
@@ -19,13 +18,25 @@ def getAllUsers(request):
 @csrf_exempt
 def insertUser(request):
     try:
-        name = request.POST['name']
-        surname = request.POST['prenom']
-        email = request.POST['email']
-        username = request.POST['username']
+        print(request.POST)
+        name = request.POST.get("name", "")
+        surname = request.POST.get("prenom", "")
+        email = request.POST.get('email', "")
+        username = request.POST.get("username", "")
         user_instance = User.create(name, surname, username, email)
         user_instance.save()
     except Exception as e:
         return HttpResponse(e)
 
     return HttpResponse("Utilisateur inséré")
+
+
+@csrf_exempt
+def getUser(request):
+    username = request.GET.get("username", "")
+    queryset = User.objects.filter(username=username)
+    if queryset:
+        qs_json = serializers.serialize('json', queryset)
+        return HttpResponse(qs_json, content_type='application/json')
+    else:
+        return HttpResponse("Aucun utilisateur correspondant")
