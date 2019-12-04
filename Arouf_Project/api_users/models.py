@@ -7,8 +7,9 @@ class User(models.Model):
     prenom = models.TextField(max_length=30)
     username =models.TextField(max_length=30)
     email=models.TextField(max_length=30)
+    password = models.TextField(max_length=512, null=True)
 
     @classmethod
-    def create(cls, nom, prenom, username, email):
-        book = cls(nom=nom, prenom=prenom, username=username, email=email)
+    def create(cls, nom, prenom, username, email, password):
+        book = cls(nom=nom, prenom=prenom, username=username, email=email, password=password)
         return book

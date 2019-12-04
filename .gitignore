@@ -1,5 +1,3 @@
 /venv/
 Arouf_Project/db.sqlite3
 .idea/
-api_users/__pycache__/
-arouf_project/__pycache__/
