@@ -11,5 +11,5 @@ class User(models.Model):
 
     @classmethod
     def create(cls, nom, prenom, username, email, password):
-        book = cls(nom=nom, prenom=prenom, username=username, email=email, password=password)
-        return book
+        user = cls(nom=nom, prenom=prenom, username=username, email=email, password=password)
+        return user
