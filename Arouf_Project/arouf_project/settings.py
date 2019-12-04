@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'api_msg.apps.ApiMsgConfig',
     'api_users.apps.ApiUsersConfig',
     'django.contrib.admin',
     'django.contrib.auth',
