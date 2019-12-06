@@ -51,7 +51,6 @@ def authenticate(request):
     return HttpResponse(pwdhash == storedPassword)
 
 
-@csrf_exempt
 def getUser(request):
     username = request.GET.get("username", "")
     queryset = User.objects.filter(username=username)
