@@ -20,12 +20,12 @@ def getAllUsers(request):
 def insertUser(request):
     try:
         print(request.POST)
-        name = request.POST.get("name", "")
-        surname = request.POST.get("surname", "")
+        prenom = request.POST.get("prenom", "")
+        nom = request.POST.get("nom", "")
         email = request.POST.get('email', "")
         username = request.POST.get("username", "")
         password = hashPass(request.POST.get("password"))
-        user_instance = User.create(name, surname, username, email, password)
+        user_instance = User.create(prenom, nom, username, email, password)
         user_instance.save()
     except Exception as e:
         return HttpResponse(e)
