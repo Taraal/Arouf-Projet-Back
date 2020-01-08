@@ -12,14 +12,13 @@ from django.views.decorators.csrf import csrf_exempt
 def getAllUsers(request):
     queryset = User.objects.all().order_by('prenom')
     if queryset:
-        qs_json = serializers.serialize('json', queryset, fields=('id', 'username'))
+        qs_json = serializers.serialize('json', queryset, fields=('id', 'username', 'nom', 'prenom'))
         return HttpResponse(qs_json, content_type='application/json')
     else:
         return HttpResponse("Aucun utilisateur enregistré")
 
 def insertUser(request):
     try:
-        print(request.POST)
         prenom = request.POST.get("prenom", "")
         nom = request.POST.get("nom", "")
         email = request.POST.get('email', "")
