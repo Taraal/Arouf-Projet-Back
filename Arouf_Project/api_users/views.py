@@ -21,7 +21,7 @@ def insertUser(request):
     try:
         print(request.POST)
         name = request.POST.get("name", "")
-        surname = request.POST.get("prenom", "")
+        surname = request.POST.get("surname", "")
         email = request.POST.get('email', "")
         username = request.POST.get("username", "")
         password = hashPass(request.POST.get("password"))
