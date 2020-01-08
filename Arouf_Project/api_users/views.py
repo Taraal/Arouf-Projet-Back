@@ -41,6 +41,12 @@ def hashPass(password):
     return (salt + pwdhash).decode('ascii')
 
 def authenticate(request):
+    """
+    Checks the hash of the input password
+    :param username
+    :param password
+    :return:
+    """
     username = request.POST.get("username", "")
     providedPassword = request.POST.get("password", "")
     storedPassword = User.objects.filter(username=username).values_list("password", flat=True)[0]
