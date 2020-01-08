@@ -2,10 +2,6 @@
 Arouf_Project/db.sqlite3
 .idea/
 Arouf_Project/arouf_project/distant_settings.py
-/Arouf_Project/api_msg/migrations/
-/Arouf_Project/api_users/migrations/
 /Arouf_Project/api_msg/__pycache__/
 /Arouf_Project/api_users/__pycache__/
-/Arouf_Project/api_groups/migrations/
 /Arouf_Project/api_groups/__pycache__/
-/Arouf_Project/api_groups/migrations/
