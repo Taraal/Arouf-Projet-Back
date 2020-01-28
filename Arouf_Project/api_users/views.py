@@ -66,5 +66,5 @@ def getUser(request):
         return HttpResponse("Aucun utilisateur correspondant")
 
 
-    def errorTest(request):
+def errorTest(request):
         div_zero = 1/0
