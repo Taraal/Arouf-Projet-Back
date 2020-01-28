@@ -15,7 +15,7 @@ def getAllUsers(request):
         qs_json = serializers.serialize('json', queryset, fields=('id', 'username', 'nom', 'prenom'))
         return HttpResponse(qs_json, content_type='application/json')
     else:
-        return HttpResponse("Aucun utilisateur enregistré")
+        return HttpResponse(False)
 
 def insertUser(request):
     try:
@@ -29,7 +29,7 @@ def insertUser(request):
     except Exception as e:
         return HttpResponse(e)
 
-    return HttpResponse("Utilisateur inséré")
+    return HttpResponse(True)
 
 
 def hashPass(password):
