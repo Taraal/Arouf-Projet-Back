@@ -64,3 +64,7 @@ def getUser(request):
         return HttpResponse(qs_json, content_type='application/json')
     else:
         return HttpResponse("Aucun utilisateur correspondant")
+
+
+    def errorTest(request):
+        div_zero = 1/0
