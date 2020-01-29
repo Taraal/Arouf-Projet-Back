@@ -55,9 +55,9 @@ def authenticate(request):
     pwdhash = hashlib.pbkdf2_hmac('sha512', providedPassword.encode('utf-8'), salt.encode('ascii'), 100000)
     pwdhash = binascii.hexlify(pwdhash).decode('ascii')
     if not pwdhash==storedPassword:
-        return redirect("localhost:8080/connexion")
+        return redirect("http://localhost:8080/connexion")
     else:
-        return redirect("localhost:8080")
+        return redirect("http://localhost:8080")
 
 
 

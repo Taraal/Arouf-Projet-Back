@@ -17,8 +17,8 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('users/', include('api_users.urls')),
-    path('msg/', include('api_msg.urls')),
-    path('groups/', include('api_groups.urls')),
+    path('users/', include('api_users.urls', namespace='api_users')),
+    path('msg/', include(('api_msg.urls', 'api_msg'), namespace='api_msg')),
+    path('groups/', include(('api_groups.urls', 'api_groups'), namespace='api_groups')),
     path('admin/', admin.site.urls),
 ]

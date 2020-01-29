@@ -27,12 +27,13 @@ SECRET_KEY = 'o-qu#ll1@t(y(e6m8ot14**_2wh+w8)a0ov+@zff7nnmrm&toa'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'testserver']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'rest_framework',
     'corsheaders',
     'api_groups.apps.ApiGroupsConfig',
     'api_msg.apps.ApiMsgConfig',
