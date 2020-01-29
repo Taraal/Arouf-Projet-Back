@@ -30,7 +30,7 @@ def insertUser(request):
     except Exception as e:
         return HttpResponse(e)
 
-    return HttpResponse(True)
+    return redirect("http://localhost:8000/users/get/all")
 
 
 def hashPass(password):
@@ -57,7 +57,7 @@ def authenticate(request):
     if not pwdhash==storedPassword:
         return redirect("http://localhost:8080/connexion")
     else:
-        return redirect("http://localhost:8080")
+        return redirect("http://localhost:8000/users/get/all")
 
 
 
