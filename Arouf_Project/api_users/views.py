@@ -4,6 +4,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .models import User
 from django.core import serializers
+from django.shortcuts import redirect
 
 from django.views.decorators.csrf import csrf_exempt
 
@@ -53,7 +54,11 @@ def authenticate(request):
     storedPassword = storedPassword[64:]
     pwdhash = hashlib.pbkdf2_hmac('sha512', providedPassword.encode('utf-8'), salt.encode('ascii'), 100000)
     pwdhash = binascii.hexlify(pwdhash).decode('ascii')
-    return HttpResponse(pwdhash == storedPassword)
+    if not pwdhash==storedPassword:
+        return redirect("localhost:8080/connexion")
+    else:
+        return redirect("localhost:8080")
+
 
 
 def getUser(request):
